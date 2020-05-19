@@ -1,1 +1,1 @@
-# 一个基于unicloud的uniapp新闻类项目
+# 一个基于unicloud和uniapp的新闻类跨端项目
