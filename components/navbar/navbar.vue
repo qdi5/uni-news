@@ -11,10 +11,9 @@
 						<view class="navbar-search_text">uni-app、vue</view>
 					</view>
 				</view>
-				
 			</view>
 		</view>
-		<view v-for="i in 100" :key="i">{{i}}</view>
+		
 	</view>
 </template>
 
@@ -45,11 +44,10 @@
 			this.navbarWidth = left
 			// #endif
 		}
-		
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.navbar {
 		padding-top: 45px;
 	}
