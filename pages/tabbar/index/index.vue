@@ -1,11 +1,13 @@
 <template>
-	<view class="content">
+	<view class="home">
 		<navbar></navbar>
-		<tab :tabList="tabList"></tab>
-		<view v-for="item in 100" :key="item">{{ item }}</view>
+		<tab @tab="handleTab" :tabList="tabList"></tab>
+		<list-scroll class="lists">
+			<list-card></list-card>
+		</list-scroll>
 	</view>
 </template>
-
+	
 <script>
 	export default {
 		data() {
@@ -21,11 +23,30 @@
 				this.$api.get_label().then(res => {
 					this.tabList = res.data
 				})
+			},
+			handleTab (payload) {
+				console.log('payload')
+				console.log(payload)
 			}
 		}
 	}
 </script>
 
-<style scoped>
-	
+<style lang="scss" scoped>
+page {
+	display: flex;
+	height: 100%;
+	background: #007AFF;
+}
+.home {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	border: 1px red solid;
+	overflow: hidden;
+}
+.lists {
+	flex: 1;
+}
+
 </style>

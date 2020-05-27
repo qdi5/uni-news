@@ -2,7 +2,7 @@
 	<view class="tab">
 		<scroll-view class="tab-scroll" scroll-x>
 			<view class="tab-scroll-box">
-				<view class="tab-scroll-item" :class="{active: index === 0}" v-for="(tab, index) in tabList" :key="index">
+				<view @click="handleItemClick(tab, index)" class="tab-scroll-item" :class="{active: index === currentIndex}" v-for="(tab, index) in tabList" :key="index">
 					{{ tab.name }}
 				</view>
 			</view>
@@ -24,8 +24,17 @@
 		},
 		data () {
 			return {
-				
+				currentIndex: 0
 			};
+		},
+		methods: {
+			handleItemClick(tab, currentIndex) {
+				this.currentIndex = currentIndex
+				this.$emit('tab', {
+					tab,
+					currentIndex
+				})
+			}
 		}
 	}
 </script>

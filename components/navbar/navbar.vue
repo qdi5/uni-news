@@ -44,6 +44,7 @@
 			this.navbarWidth = left
 			// #endif
 		}
+		
 	}
 </script>
 

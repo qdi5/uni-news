@@ -1,4 +1,4 @@
-import $http from './http.js'
+import $http from '../http.js'
 const get_label3 = data => {
 	return $http('get_label', data)
 }

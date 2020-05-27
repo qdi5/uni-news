@@ -1,4 +1,4 @@
-import $http from './http.js'
+import $http from '../http.js'
 
 // 自动导入当前目录下的所有文件的默认模块
 const context = require.context('.', false, /\.js$/)
