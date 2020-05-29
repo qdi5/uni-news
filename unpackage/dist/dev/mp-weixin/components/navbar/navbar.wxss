@@ -44,8 +44,7 @@
           align-items: center;
   width: 100%;
   padding: 0 15px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .navbar-search.data-v-dcdc8260 {
   width: 100%;
@@ -53,11 +52,9 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background: #fff;
-  -webkit-border-radius: 30px;
-          border-radius: 30px;
+  border-radius: 30px;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;

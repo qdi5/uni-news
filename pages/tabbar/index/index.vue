@@ -2,9 +2,11 @@
 	<view class="home">
 		<navbar></navbar>
 		<tab @tab="handleTab" :tabList="tabList"></tab>
-		<list-scroll class="lists">
-			<list-card></list-card>
-		</list-scroll>
+		<view class="lists">
+			<list-scroll class="list-card-wrapper">
+				<list-card></list-card>
+			</list-scroll>
+		</view>
 	</view>
 </template>
 	
@@ -32,11 +34,11 @@
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 page {
 	display: flex;
 	height: 100%;
-	background: #007AFF;
+	background: red;
 }
 .home {
 	display: flex;
@@ -44,9 +46,13 @@ page {
 	flex: 1;
 	border: 1px red solid;
 	overflow: hidden;
+	.lists {
+		flex: 1;
+		box-sizing: border-box;
+		background: green;
+		.list-card-wrapper {
+			height: 100%;
+		}
+	}
 }
-.lists {
-	flex: 1;
-}
-
 </style>
