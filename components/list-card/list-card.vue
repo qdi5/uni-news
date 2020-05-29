@@ -1,80 +1,47 @@
 <template>
-	<view class="list-wrapper">
-		<view class="list">
-			<view class="list-item">
-				<view class="img-wrapper">
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-				</view>
-				<view class="text">
-					<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
-					<view class="other">
-						<view class="type-wrapper">
-							<view class="type">前端</view>
-							<view class="type">后端</view>
-						</view>
-						<view class="view">120浏览</view>
-					</view>
-				</view>
+	<view>
+		<view class="list-item" v-if="mode === 'default'">
+			<view class="img-wrapper">
+				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
 			</view>
-			<view class="list-item img-big-mode">
-				<view class="img-wrapper">
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-				</view>
-				<view class="text">
-					<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
-					<view class="other">
-						<view class="type-wrapper">
-							<view class="type">前端</view>
-							<view class="type">node</view>
-						</view>
-						<view class="view">120浏览</view>
-					</view>
-				</view>
-			</view>
-			<view class="list-item img-small-mode">
-				<view class="img-wrapper">
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-				</view>
-				<view class="text">
-					<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
-					<view class="other">
-						<view class="type-wrapper">
-							<view class="type">前端</view>
-							<view class="type">vue</view>
-						</view>
-						<view class="view">120浏览</view>
-					</view>
-				</view>
-			</view>
-			<view class="list-item img-small-mode">
-				<view class="img-wrapper">
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-				</view>
-				<view class="text">
-					<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
-					<view class="other">
-						<view class="type-wrapper">
-							<view class="type">前端</view>
-							<view class="type">webpack</view>
-						</view>
-						<view class="view">120浏览</view>
-					</view>
-				</view>
-			</view>
-			<view class="list-item img-small-mode">
-				<view class="text">
-					<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
-				</view>
-				<view class="img-wrapper">
-					<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-				</view>
+			<view class="text">
+				<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
 				<view class="other">
 					<view class="type-wrapper">
 						<view class="type">前端</view>
-						<view class="type">jquery</view>
+						<view class="type">后端</view>
+					</view>
+					<view class="view">120浏览</view>
+				</view>
+			</view>
+		</view>
+		<view class="list-item img-big-mode" v-else-if="mode === 'bigImg'">
+			<view class="img-wrapper">
+				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
+			</view>
+			<view class="text">
+				<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
+				<view class="other">
+					<view class="type-wrapper">
+						<view class="type">前端</view>
+						<view class="type">node</view>
+					</view>
+					<view class="view">120浏览</view>
+				</view>
+			</view>
+		</view>
+		<view class="list-item img-small-mode" v-else-if="mode === 'smallImg'">
+			<view class="img-wrapper">
+				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
+				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
+				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
+			</view>
+			<view class="text">
+				<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
+				<view class="other">
+					<view class="type-wrapper">
+						<view class="type">前端</view>
+						<view class="type">vue</view>
 					</view>
 					<view class="view">120浏览</view>
 				</view>
@@ -85,26 +52,21 @@
 
 <script>
 	export default {
-		data() {
-			return {
-				
-			};
+		props: {
+			mode: {
+				type: String,
+				default: 'default',
+				validator: function(val) {
+					console.log('验证mode字段：',val)
+					return ['default','bigImg','smallImg'].indexOf(val) !== -1
+				}
+			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.list-wrapper {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
-	.list {
-		font-size: 12px;
-		padding: 10px;
-	}
+	
 	.list-item {
 		display: flex;
 		flex-direction: row;

@@ -1,13 +1,13 @@
 <template>
 	<view class="scroll">
 		<scroll-view scroll-y="true" class="list-scroll">
-			<view>
+			<view class="slot-wrapper">
 				<slot></slot>
 			</view>
 		</scroll-view>
 	</view>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .scroll {
 	position: relative;
 	width: 100%;
@@ -22,5 +22,8 @@
 	display: flex;
 	flex-direction: column;
 	
+}
+.slot-wrapper {
+	height: 100%;
 }
 </style>

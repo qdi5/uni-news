@@ -3,9 +3,7 @@
 		<navbar></navbar>
 		<tab @tab="handleTab" :tabList="tabList"></tab>
 		<view class="lists">
-			<list-scroll class="list-card-wrapper">
-				<list-card></list-card>
-			</list-scroll>
+			<carousel></carousel>
 		</view>
 	</view>
 </template>
@@ -38,18 +36,16 @@
 page {
 	display: flex;
 	height: 100%;
-	background: red;
+	background-color: red;
 }
 .home {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	border: 1px red solid;
 	overflow: hidden;
 	.lists {
 		flex: 1;
 		box-sizing: border-box;
-		background: green;
 		.list-card-wrapper {
 			height: 100%;
 		}

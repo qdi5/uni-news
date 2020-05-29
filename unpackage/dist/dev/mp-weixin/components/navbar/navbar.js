@@ -78,7 +78,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniIcons: function() {
-    return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 67))
+    return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 60))
   }
 }
 var render = function() {
@@ -159,7 +159,7 @@ var _default =
     var bottom = pill.bottom;
     var top = pill.top;
     var right = pill.right;
-    // 动态设置顶部搜索框的高度、宽度
+    // 动态设置顶部搜索框父容器的高度、宽度
     this.navbarHeight = bottom - statusBarHeight + (top - statusBarHeight);
     this.navbarWidth = left;
 

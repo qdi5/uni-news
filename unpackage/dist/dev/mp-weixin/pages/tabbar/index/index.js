@@ -99,11 +99,8 @@ var components = {
   tab: function() {
     return __webpack_require__.e(/*! import() | components/tab/tab */ "components/tab/tab").then(__webpack_require__.bind(null, /*! @/components/tab/tab.vue */ 46))
   },
-  listScroll: function() {
-    return __webpack_require__.e(/*! import() | components/list-scroll/list-scroll */ "components/list-scroll/list-scroll").then(__webpack_require__.bind(null, /*! @/components/list-scroll/list-scroll.vue */ 53))
-  },
-  listCard: function() {
-    return __webpack_require__.e(/*! import() | components/list-card/list-card */ "components/list-card/list-card").then(__webpack_require__.bind(null, /*! @/components/list-card/list-card.vue */ 60))
+  carousel: function() {
+    return __webpack_require__.e(/*! import() | components/carousel/carousel */ "components/carousel/carousel").then(__webpack_require__.bind(null, /*! @/components/carousel/carousel.vue */ 53))
   }
 }
 var render = function() {
@@ -144,8 +141,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
 //
 //
 //

@@ -39,7 +39,7 @@
 			const bottom = pill.bottom
 			const top = pill.top
 			const right = pill.right
-			// 动态设置顶部搜索框的高度、宽度
+			// 动态设置顶部搜索框父容器的高度、宽度
 			this.navbarHeight = bottom - statusBarHeight + (top - statusBarHeight)
 			this.navbarWidth = left
 			// #endif
