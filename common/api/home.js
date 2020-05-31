@@ -4,6 +4,7 @@ const get_label = data => {
 }
 
 const get_list = data => {
+	debugger
 	return $http('get_list', data)
 }
 

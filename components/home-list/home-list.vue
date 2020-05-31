@@ -10,7 +10,11 @@
 	export default {
 		props: {
 			currentIndex: 0,
-			myIndex: 0
+			myIndex: 0,
+			tagName: {
+				type: String,
+				default: '后端开发'
+			}
 		},
 		data() {
 			return {
@@ -24,7 +28,7 @@
 		},
 		methods: {
 			getList() {
-				this.$api.get_list().then(res => {
+				this.$api.get_list({name: this.tagName}).then(res => {
 					console.log('获取列表：', res.data)
 					this.listItemData = res.data
 					this.isDataLoaded = true

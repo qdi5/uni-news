@@ -2,6 +2,7 @@
 const db = uniCloud.database()
 exports.main = async (event, context) => {
 	const { name } = event
+	debugger
   //event为客户端上传的参数
   /* const list = await db.collection('article').
 	  field({

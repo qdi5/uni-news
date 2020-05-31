@@ -2,7 +2,7 @@
 	<swiper :current="currentIndex" class="swiper-self" @change="handleChange">
 		<swiper-item v-for="(item, index) in tab" :key="item._id">
 			<list-scroll>
-				<home-list :currentIndex="currentIndex" :myIndex="index"></home-list>
+				<home-list :tagName="item.name" :currentIndex="currentIndex" :myIndex="index"></home-list>
 			</list-scroll>
 		</swiper-item>
 	</swiper>
