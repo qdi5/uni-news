@@ -1,49 +1,48 @@
 <template>
 	<view>
-		<view class="list-item" v-if="mode === 'default'">
+		<view class="list-item" v-if="listItem.mode === 'base'">
 			<view class="img-wrapper">
-				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
+				<image class="img" mode="aspectFill" :src="listItem.cover[0]"></image>
 			</view>
 			<view class="text">
-				<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
+				<view class="title">{{ listItem.title }}</view>
 				<view class="other">
 					<view class="type-wrapper">
-						<view class="type">前端</view>
-						<view class="type">后端</view>
+						<view class="type">{{ listItem.classify }}</view>
+						
 					</view>
-					<view class="view">120浏览</view>
+					<view class="view">{{ listItem.browse_count }}浏览</view>
 				</view>
 			</view>
 		</view>
-		<view class="list-item img-big-mode" v-else-if="mode === 'bigImg'">
+		<view class="list-item img-big-mode" v-else-if="listItem.mode === 'image'">
 			<view class="img-wrapper">
-				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
+				<image class="img" mode="aspectFill" :src="listItem.cover[0]"></image>
 			</view>
 			<view class="text">
-				<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
+				<view class="title">{{listItem.title}}</view>
 				<view class="other">
 					<view class="type-wrapper">
-						<view class="type">前端</view>
-						<view class="type">node</view>
+						<view class="type">{{ listItem.classify }}</view>
+						
 					</view>
-					<view class="view">120浏览</view>
+					<view class="view">{{ listItem.browse_count }}浏览</view>
 				</view>
 			</view>
 		</view>
-		<view class="list-item img-small-mode" v-else-if="mode === 'smallImg'">
+		<view class="list-item img-small-mode" v-else-if="listItem.mode === 'column'">
 			<view class="img-wrapper">
-				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
-				<image class="img" mode="aspectFill" src="../../static/logo.png"></image>
+				<template v-for="(img,index) in listItem.cover" :Key="index">
+					<image v-if="index < 3" class="img" mode="aspectFill" :src="img"></image>
+				</template>
 			</view>
 			<view class="text">
-				<view class="title">uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架uni-app开发框架</view>
+				<view class="title">{{ listItem.title }}</view>
 				<view class="other">
 					<view class="type-wrapper">
-						<view class="type">前端</view>
-						<view class="type">vue</view>
+						<view class="type">{{ listItem.classify }}</view>
 					</view>
-					<view class="view">120浏览</view>
+					<view class="view">{{ listItem.browse_count }}浏览</view>
 				</view>
 			</view>
 		</view>
@@ -53,13 +52,10 @@
 <script>
 	export default {
 		props: {
-			mode: {
-				type: String,
-				default: 'default',
-				validator: function(val) {
-					console.log('验证mode字段：',val)
-					return ['default','bigImg','smallImg'].indexOf(val) !== -1
-				}
+			
+			listItem: {
+				type: Object,
+				default: () => {}
 			}
 		}
 	}

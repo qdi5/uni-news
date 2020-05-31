@@ -3,7 +3,7 @@
 		<navbar></navbar>
 		<tab @tab="handleTab" :index="currentIndex" :tabList="tabList"></tab>
 		<view class="lists">
-			<carousel @change-swiper-item="changeSwiperItem" :currentTab="currentTab" :tab="tabList"></carousel>
+			<carousel v-if="tabList && tabList.length" @change-swiper-item="changeSwiperItem" :currentTab="currentTab" :tab="tabList"></carousel>
 		</view>
 	</view>
 </template>
@@ -26,6 +26,7 @@
 			getLabel () {
 				this.$api.get_label().then(res => {
 					this.tabList = res.data
+					
 				})
 			},
 			handleTab (payload) {

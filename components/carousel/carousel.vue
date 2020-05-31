@@ -2,7 +2,7 @@
 	<swiper :current="currentIndex" class="swiper-self" @change="handleChange">
 		<swiper-item v-for="(item, index) in tab" :key="item._id">
 			<list-scroll>
-				<home-list></home-list>
+				<home-list :currentIndex="currentIndex" :myIndex="index"></home-list>
 			</list-scroll>
 		</swiper-item>
 	</swiper>
@@ -13,18 +13,18 @@
 		props: {
 			tab: {
 				type: Array,
-				default: () => []
+				default: () => [],
+				required: true
 			},
 			currentTab: {
-				type: Object,
-				default: () => {
-					currentIndex: 0
-				}
+				required: true,
+				type: Object
 			}
 		},
 		data() {
 			return {
-				currentIndex: this.currentTab.currentIndex
+				currentIndex: this.currentTab.currentIndex,
+				initTab: this.currentTab
 			};
 		},
 		methods: {
