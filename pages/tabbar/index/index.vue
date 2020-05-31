@@ -3,7 +3,7 @@
 		<navbar></navbar>
 		<tab @tab="handleTab" :index="currentIndex" :tabList="tabList"></tab>
 		<view class="lists">
-			<carousel v-if="tabList && tabList.length" @change-swiper-item="changeSwiperItem" :currentTab="currentTab" :tab="tabList"></carousel>
+			<list v-if="tabList && tabList.length" @change-swiper-item="changeSwiperItem" :currentTab="currentTab" :tab="tabList"></list>
 		</view>
 	</view>
 </template>
@@ -25,9 +25,9 @@
 		methods: {
 			getLabel () {
 				this.$api.get_label().then(res => {
-					this.tabList = res.data
-					
-				})
+				res.data.unshift({name: '全部'})
+				this.tabList = res.data
+			})
 			},
 			handleTab (payload) {
 				console.log('payload')
