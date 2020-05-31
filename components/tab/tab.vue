@@ -20,11 +20,12 @@
 				required: true,
 				type: Array,
 				default: () => []
-			}
+			},
+			index: 0
 		},
 		data () {
 			return {
-				currentIndex: 0
+				currentIndex: this.index
 			};
 		},
 		methods: {
@@ -34,6 +35,13 @@
 					tab,
 					currentIndex
 				})
+			}
+		},
+		watch: {
+			index (newValue) {
+				if (newValue !== this.currentIndex) {
+					this.currentIndex = newValue
+				}
 			}
 		}
 	}

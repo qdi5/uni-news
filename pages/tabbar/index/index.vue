@@ -1,9 +1,9 @@
 <template>
 	<view class="home">
 		<navbar></navbar>
-		<tab @tab="handleTab" :tabList="tabList"></tab>
+		<tab @tab="handleTab" :index="currentIndex" :tabList="tabList"></tab>
 		<view class="lists">
-			<carousel></carousel>
+			<carousel @change-swiper-item="changeSwiperItem" :currentTab="currentTab" :tab="tabList"></carousel>
 		</view>
 	</view>
 </template>
@@ -12,7 +12,11 @@
 	export default {
 		data() {
 			return {
-				tabList: []
+				tabList: [],
+				currentTab: {
+					currentIndex: 0
+				},
+				currentIndex: 0
 			}
 		},
 		onLoad() {
@@ -27,6 +31,10 @@
 			handleTab (payload) {
 				console.log('payload')
 				console.log(payload)
+				this.currentTab = payload
+			},
+			changeSwiperItem (detail) {
+				this.currentIndex = detail.current
 			}
 		}
 	}
@@ -36,7 +44,7 @@
 page {
 	display: flex;
 	height: 100%;
-	background-color: red;
+	
 }
 .home {
 	display: flex;

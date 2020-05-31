@@ -4,7 +4,6 @@
 			<list-card mode="default"></list-card>
 			<list-card mode="bigImg"></list-card>
 			<list-card v-for="item in 3" mode="smallImg" :key="item"></list-card>
-			<list-card mode="default"></list-card>
 		</view>
 	</view>
 </template>
