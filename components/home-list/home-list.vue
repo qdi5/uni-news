@@ -18,7 +18,8 @@
 		},
 		data() {
 			return {
-				listItemData: null
+				listItemData: null,
+				page: 1
 			};
 		},
 		created () {
@@ -28,13 +29,20 @@
 		},
 		methods: {
 			getList() {
-				this.$api.get_list({name: this.tagName}).then(res => {
+				this.$api.get_list({name: this.tagName, page: this.page}).then(res => {
 					console.log('获取列表：', res.data)
-					this.listItemData = res.data
+					let oldData = this.listItemData || []
+					this.listItemData = [...oldData, ...res.data]
 					this.isDataLoaded = true
 				}).catch(error => {
 					console.log('获取列表出错', error)
 				})
+			},
+			loadMore() {
+				console.log('当前页数：',this.page)
+				this.page++
+				this.getList()
+				console.log('哈哈，六一快乐')
 			}
 		},
 		watch: {

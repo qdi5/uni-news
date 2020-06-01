@@ -1,8 +1,8 @@
 <template>
 	<swiper :current="currentIndex" class="swiper-self" @change="handleChange">
 		<swiper-item v-for="(item, index) in tab" :key="item._id">
-			<list-scroll>
-				<home-list :tagName="item.name" :currentIndex="currentIndex" :myIndex="index"></home-list>
+			<list-scroll @loadmore="loadMore">
+				<home-list ref="homeListRef" :tagName="item.name" :currentIndex="currentIndex" :myIndex="index"></home-list>
 			</list-scroll>
 		</swiper-item>
 	</swiper>
@@ -32,6 +32,11 @@
 				console.log('swiper切换咯：',event.detail)
 				this.$emit('change-swiper-item', event.detail)
 				this.currentIndex = event.detail.current
+			},
+			loadMore() {
+				// debugger
+				console.log(this.$refs.homeListRef[this.currentIndex])
+				this.$refs.homeListRef[this.currentIndex].loadMore()
 			}
 		},
 		watch: {
