@@ -3,6 +3,7 @@
 		<view class="list">
 			<list-card v-for="listItem in listItemData" :listItem="listItem" :key="listItem._id"></list-card>
 		</view>
+		<uni-load-more v-if="listItemData === null || listItemData.length > 5" :status="loadStatus"></uni-load-more>
 	</view>
 </template>
 
@@ -13,36 +14,45 @@
 			myIndex: 0,
 			tagName: {
 				type: String,
-				default: '后端开发'
+				default: '全部'
 			}
 		},
 		data() {
 			return {
 				listItemData: null,
-				page: 1
+				page: 1,
+				loadStatus: 'loading'
 			};
 		},
 		created () {
 			// 标识数据是否已经成功加载过一次了
 			this.isDataLoaded = false
+			this.isLoadedAll = false
 			console.log('created')
 		},
 		methods: {
 			getList() {
 				this.$api.get_list({name: this.tagName, page: this.page}).then(res => {
-					console.log('获取列表：', res.data)
-					let oldData = this.listItemData || []
-					this.listItemData = [...oldData, ...res.data]
+					const newData = res.data
 					this.isDataLoaded = true
+					if (!newData || !newData.length) {
+						this.isLoadedAll = true
+						this.loadStatus = 'noMore'
+						return
+					}
+					console.log('获取列表：', newData)
+					let oldData = this.listItemData || []
+					this.listItemData = [...oldData, ...newData]
 				}).catch(error => {
 					console.log('获取列表出错', error)
 				})
 			},
 			loadMore() {
 				console.log('当前页数：',this.page)
-				this.page++
-				this.getList()
-				console.log('哈哈，六一快乐')
+				if (!this.isLoadedAll) {
+					this.page++
+					this.getList()
+				}
 			}
 		},
 		watch: {
