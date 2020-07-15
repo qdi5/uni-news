@@ -5,7 +5,10 @@
 				<image class="img" mode="aspectFill" :src="listItem.cover[0]"></image>
 			</view>
 			<view class="text">
-				<view class="title">{{ listItem.title }}</view>
+				<view class="title">
+					{{ listItem.title }}
+					<uni-icons size="14" type="heart"></uni-icons>
+				</view>
 				<view class="other">
 					<view class="type-wrapper">
 						<view class="type">{{ listItem.classify }}</view>
